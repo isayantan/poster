@@ -1,0 +1,123 @@
+% For theorems and such
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\usepackage{multirow}
+\usepackage{tikz-cd} %for tikzcd
+\usepackage{subcaption}
+\usepackage{multicol,caption}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\usepackage{wrapfig}
+
+\usepackage[flushleft]{threeparttable} % http://ctan.org/pkg/threeparttable
+\usepackage{colortbl}
+\definecolor{bgcolor}{rgb}{0.8,1,1}
+\definecolor{bgcolor2}{rgb}{0.8,1,0.8}
+\definecolor{niceblue}{rgb}{0.0,0.19,0.56}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor={blue},citecolor={niceblue},urlcolor={blue}}
+
+% \usepackage[dvipsnames]{xcolor}
+\usepackage{pifont}
+\definecolor{PineGreen}{RGB}{0,110,51}
+\definecolor{BrickRed}{RGB}{143,20,2}
+\newcommand{\cmark}{{\color{PineGreen}\ding{51}}}%
+\newcommand{\xmark}{{\color{BrickRed}\ding{55}}}%
+
+\usepackage{thmtools}
+
+\newcommand{\cD}{{\cal D}}
+\newcommand{\Exp}{\mathbb{E}}
+\newcommand{\Prob}[1]{\mathbb{P} \left[ #1\right]}
+% \usepackage[colorinlistoftodos,bordercolor=orange,backgroundcolor=orange!20,linecolor=orange,textsize=scriptsize]{todonotes}
+% \newcommand{\TODO}[1]{\todo[inline,linecolor=green,backgroundcolor=green!25,bordercolor=green,caption={}]{#1}}
+% \newcommand{\nicolas}[1]{\todo[inline]{\textbf{Nicolas: }#1}}
+% \newcommand{\eduard}[1]{\todo[inline]{\textbf{Eduard: }#1}}
+% \newcommand{\sayantan}[1]{\todo[inline]{\textbf{Sayantan: }#1}}
+
+
+ \usepackage[disable,textsize=tiny]{todonotes}
+% \usepackage[textsize=tiny]{todonotes}
+
+%macros for comments
+\providecommand{\mycomment}[3]{\todo[inline,caption={},color=#3!20]{\textbf{#1: }#2}}%
+\providecommand{\inlinecomment}[3]{{\color{#1}#2: #3}}
+\newcommand\commenter[2]%
+{%
+  \expandafter\newcommand\csname i#1\endcsname[1]{\inlinecomment{#2}{#1}{##1}}
+  \expandafter\newcommand\csname #1\endcsname[1]{\mycomment{#1}{##1}{#2}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% To remove
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\commenter{cqmo}{red}
+\commenter{jhjd}{blue}
+\commenter{hnb}{orange}
+\commenter{Nicolas}{yellow}
+\commenter{Eduard}{green}
+\commenter{Sayantan}{white}
+
+%%%% Shaded theorems
+\definecolor{shadecolor}{gray}{0.9}
+\declaretheoremstyle[
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=0.5em,
+spaceabove=1pt,
+mdframed={
+  skipabove=8pt,
+  skipbelow=8pt,
+  hidealllines=true,
+  backgroundcolor={shadecolor},
+  innerleftmargin=4pt,
+  innerrightmargin=4pt}
+]{shaded}
+
+
+\declaretheorem[style=shaded,within=section]{definition}
+\declaretheorem[style=shaded,sibling=definition]{theorem}
+\declaretheorem[style=shaded,sibling=definition]{proposition}
+\declaretheorem[style=shaded,sibling=definition]{assumption}
+\declaretheorem[style=shaded,sibling=definition]{corollary}
+\declaretheorem[style=shaded,sibling=definition]{conjecture}
+\declaretheorem[style=shaded,sibling=definition]{lemma}
+\declaretheorem[style=shaded,sibling=definition]{remark}
+\declaretheorem[style=shaded,sibling=definition]{example}
+% \declaretheorem[style=shaded,sibling=definition]{algorithm}
+
+
+% if you use cleveref..
+\usepackage[capitalize,noabbrev]{cleveref}
+
+
+% Attempt to make hyperref and algorithmic work together better:
+%\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage{xspace}
+
+\newcommand{\algname}[1]{{\sf  #1}\xspace}
+\newcommand{\algnamex}[1]{{\sf #1}\xspace}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\cO}{{\cal O}}
+
+\newcommand{\hx}{\hat{x}}
+\newcommand{\la}{\left\langle}
+\newcommand{\g}{\gamma}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\vr}{\varphi}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\lam}{\lambda}
+\newcommand{\om}{\omega}
+\newcommand{\eqdef}{:=}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}

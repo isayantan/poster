@@ -1,0 +1,493 @@
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%% shaded theorems
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{mdframed} 
+\usepackage{thmtools}
+
+%\newtheoremstyle{selfdefined}
+%{12pt}% Space above
+%{12pt}% Space below
+%{}% Body font \itshape =italian style 
+%{}% Indent amount
+%{\bfseries}% Theorem head font
+%{}% Punctuation after theorem heading
+%{\newline}% Space after theorem heading, 0.5em => in gleicher zeile weiter
+%{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+\definecolor{shadecolor}{gray}{0.95}
+\declaretheoremstyle[
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=0.5em,
+spaceabove=1pt,
+mdframed={
+  skipabove=8pt,
+  skipbelow=8pt,
+  hidealllines=true,
+  backgroundcolor={shadecolor},
+  innerleftmargin=4pt,
+  innerrightmargin=4pt}
+]{shaded}
+
+
+
+
+\usepackage[colorinlistoftodos,bordercolor=orange,backgroundcolor=orange!20,linecolor=orange,textsize=scriptsize]{todonotes}
+%\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}} % don't print "in" for articles
+
+
+
+\graphicspath{{../figures/}}  % Path to figures folder
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\bH}{\mathbf{H}}
+    
+  \newcommand{\argmin}{\text{\rm argmin}}
+\newcommand{\eqdef}{\; { := }\;}
+\providecommand{\Null}[1]{\mathbf{Null}\left( #1\right)}
+\providecommand{\Rank}[1]{\mathbf{Rank}\left( #1\right)}
+\providecommand{\rank}[1]{\mathbf{Rank}\left( #1\right)}
+\providecommand{\Range}[1]{\mathbf{Range}\left( #1\right)}
+\providecommand{\range}[1]{\mathbf{Range}\left( #1\right)}
+\providecommand{\Tr}[1]{\mathbf{Tr}\left( #1\right)}
+\providecommand{\trace}[1]{\mathbf{Tr}\left( #1\right)}
+\providecommand{\diag}[1]{\mathbf{Diag}\left( #1\right)}
+\providecommand{\E}[1]{\mathbb{E}\left[ #1\right]}
+% \providecommand{\EE}[2]{\mathbb{E}_{#1}\left[ #2\right]}
+\newcommand{\EE}{\mathbb{E}}
+\providecommand{\Prob}[1]{\mathbb{P}\left[ #1\right]}
+  \providecommand{\dotprod}[1]{\langle #1\rangle} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\colvec}[1]{{\text{\scriptsize $
+\begin{array}{c}
+ #1
+\end{array}$
+}}}
+
+
+
+\newcommand{\rob}[1]{\todo[inline]{\textbf{Robert: }#1}}
+\newcommand{\pet}[1]{\todo[inline]{\textbf{Peter: }#1}}
+\newcommand{\filip}[1]{\todo[inline]{\textbf{Filip: }#1}}
+\newcommand{\seb}[1]{\todo[inline]{\textbf{Sebastian: }#1}}
+
+
+\newcommand{\cA}{{\mathcal A}}
+\newcommand{\cB}{{\mathcal B}}
+\newcommand{\cC}{{\mathcal C}}
+\newcommand{\cD}{{\mathcal D}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\cF}{{\mathcal F}}
+\newcommand{\cG}{{\mathcal G}}
+\newcommand{\cH}{{\mathcal H}}
+\newcommand{\cJ}{{\mathcal J}}
+\newcommand{\cK}{{\mathcal K}}
+\newcommand{\cL}{{\mathcal L}}
+\newcommand{\cM}{{\mathcal M}}
+\newcommand{\cN}{{\mathcal N}}
+\newcommand{\cO}{{\mathcal O}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\cQ}{{\mathcal Q}}
+\newcommand{\cR}{{\mathcal R}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cV}{{\mathcal V}}
+\newcommand{\cX}{{\mathcal X}}
+\newcommand{\cY}{{\mathcal Y}}
+\newcommand{\cW}{{\mathcal W}}
+\newcommand{\cZ}{{\mathcal Z}}
+
+
+
+
+% matrices
+%\newcommand{\mA}{{ A}}
+%\newcommand{\mB}{{ B}}
+%\newcommand{\mC}{{ C}}
+%\newcommand{\mD}{{ D}}
+%\newcommand{\mE}{{ E}}
+%\newcommand{\mF}{{ F}}
+%\newcommand{\mG}{{ G}}
+%\newcommand{\mH}{{ H}}
+%\newcommand{\mI}{{I}}
+%\newcommand{\mJ}{{ J}}
+%\newcommand{\mK}{{ K}}
+%\newcommand{\mL}{{ L}}
+%\newcommand{\mM}{{ M}}
+%\newcommand{\mN}{{ N}}
+%\newcommand{\mO}{{ O}}
+%\newcommand{\mP}{{ P}}
+%\newcommand{\mQ}{{ Q}}
+%\newcommand{\mR}{{ R}}
+%\newcommand{\mS}{{ S}}
+%\newcommand{\mT}{{ T}}
+%\newcommand{\mU}{{ U}}
+%\newcommand{\mV}{{ V}}
+%\newcommand{\mW}{{ W}}
+%\newcommand{\mX}{{X}}
+%\newcommand{\mY}{{ Y}}
+%\newcommand{\mZ}{{ Z}}
+%\newcommand{\mLambda}{{ \Lambda}}
+
+\newcommand{\bigZ}{{ \mathbf{Z}}}
+
+\newcommand{\gS}{ {\mS_0}}
+
+
+%Vectorization
+\providecommand{\Vect}[1]{\mathbf{Vec}\left( #1\right)}
+\providecommand{\invVec}[1]{\mathbf{Vec^{-1}}\left( #1\right)}
+\newcommand{\vX}{{X_{\text{v}}}}
+\newcommand{\vI}{{I_{\text{v}}}}
+
+%ef21: new commands
+
+\newcommand {\maxin}{\max_{i=1,\dots, n}}
+\newcommand {\maxi}{\max_{i}}
+\newcommand {\minin}{\min_{i=1,\dots, n}}
+\newcommand {\mini}{\min_{i}}
+\newcommand {\sumin}{\sum_{i=1}^{n}}
+\newcommand {\suminn}{\fr{1}{n}\sum_{i=1}^{n}}
+\newcommand {\sumjm}{\sum_{j=1}^{m}}
+\newcommand {\sumjmi}{\sum_{j=1}^{m_i}}
+\newcommand {\sumjmm}{\fr{1}{m}\sum_{j=1}^{m}}
+\newcommand {\sumjnn}{\fr{1}{n}\sum_{j=1}^{n}}
+\newcommand {\sumjmmi}{\fr{1}{m_i}\sum_{j=1}^{m_i}}
+\newcommand {\sumjn}{\sum_{j=1}^{n}}
+\newcommand {\wik}{w_{i}^{k}}
+\newcommand {\wjk}{w_{j}^{k}}
+\newcommand {\wk}{w^{k}}
+\newcommand {\wikpo}{w_{i}^{k+1}}
+\newcommand {\wjkpo}{w_{j}^{k+1}}
+%\newcommand {\sumin}{\sum_{i=1}^{n}}
+\newcommand {\sumid}{\sum_{i=1}^{d}}
+\newcommand {\ghx}{\hat{g}(x)}
+\newcommand {\gh}{\hat{g}}
+\newcommand {\gih}{\hat_i}
+\newcommand {\gihx}{\hat{g_i}(x)}
+%\newcommand {\sumjn}{\sum_{j=1}^{n}}
+\newcommand{\cmark}{\textcolor{blue}{\ding{51}}}%
+\newcommand{\xmark}{\textcolor{red}{\ding{55}}}%
+
+\newcommand{\lamax}[1]{\lam_{\max}\left(#1\right)}
+\newcommand{\lamin}[1]{\lam_{\min}\left(#1\right)}
+\newcommand{\rb}[1]{\left(#1\right)}
+\renewcommand{\sb}[1]{\left[#1\right]}
+\newcommand{\cb}[1]{\lt\{#1\rt\}}
+
+\newcommand {\rbl}[1]{(#1)} %round braces without left - right alignment
+%\renewcommand{\nf}[1]{\nabla f\rbl{#1}}
+\newcommand{\nfi}[1]{\nabla f_i\rbl{#1}}
+\newcommand{\nfj}[1]{\nabla f_j\rbl{#1}}
+
+\newcommand{\xk}{x^{k}}
+\newcommand{\xt}{x^{t}}
+\newcommand{\xtpo}{x^{t+1}}
+\newcommand{\xkpo}{x^{k+1}}
+\newcommand{\fxk}{f(\xk)}
+\newcommand{\gxk}{g(\xk)}
+\newcommand{\fxkpo}{f(\xkpo)}
+\newcommand{\dz}{\delta_0}
+\newcommand{\xs}{x^{\star}}
+\newcommand{\nfxk}{\nf{\xk}}
+\newcommand{\nfxkpo}{\nf{x^{k+1}}}
+\newcommand{\nfxt}{\nf{\xt}}
+\newcommand{\nfxtpo}{\nf{\xtpo}}
+\newcommand{\nfomt}{\nf{\omt}}
+\newcommand{\nfomtpo}{\nf{\omtpo}}
+\newcommand{\nfxs}{\nf{\xs}}
+\newcommand{\nfx}{\nf{x}}
+\newcommand{\nfy}{\nf{y}}
+\newcommand{\nfxijk}{\nabla f_{\xi_{ij}^k} (x^k)}
+\newcommand{\nfxijkpo}{\nabla f_{\xi_{ij}^k}(x^{k+1})}
+\newcommand{\nfixk}{\nfi{\xk}}
+\newcommand{\nfixt}{\nfi{\xt}}
+\newcommand{\nfix}{\nfi{x}}
+\newcommand{\nfiy}{\nfi{y}}
+\newcommand{\nfijx}{\nabla f_{ij}(x)}
+\newcommand{\nfijy}{\nabla f_{ij}(y)}
+\newcommand{\dgt}{\Delta g^{t}}
+\newcommand{\dgtpo}{\Delta g^{t+1}}
+\newcommand{\gt}{ g^{t}}
+\newcommand{\gtpo}{ g^{t+1}}
+
+\newcommand{\dgit}{\Delta g_i^{t}}
+\newcommand{\dgitpo}{\Delta g_i^{t+1}}
+
+\newcommand{\omitpo}{\omega_i^{t+1}}
+% \renewcommand{\omit}{\omega_i^{t}}
+
+\newcommand{\nfiomtpo}{\nfi{\omitpo}}
+\newcommand{\nfitpoxtpo}{\nabla f_{i_{t+1}}(x^{t+1})}
+
+%\newcommand{\nfix}{\nfi{x}}
+
+\newcommand{\nfixs}{\nfi{\xs}}
+\newcommand{\nfjxk}{\nfj{\xk}}
+\newcommand{\nfjxs}{\nfj{\xs}}
+\newcommand{\nfixkpo}{\nfi{x^{k+1}}}
+\newcommand{\nfixtpo}{\nfi{x^{t+1}}}
+\newcommand{\nfitxt}{\nabla f_{i_{t}}(x^{t})}
+\newcommand{\nfitomt}{\nabla f_{i_{t}}(\omt)}
+%\newcommand{\nfitpoxtpo}{\nabla f_{i_{t+1}}(x^{t+1})}
+\newcommand{\nfitpoomtpo}{\nabla f_{i_{t+1}}(\omtpo)}
+
+\newcommand{\nfjxkpo}{\nfj{x^{k+1}}}
+\newcommand{\hik}{h^{k}_{i}}
+\newcommand{\ali}{\al_{i}}
+\newcommand{\mik}{m^{k}_{i}}
+\newcommand{\hikpo}{h^{k+1}_{i}}
+\newcommand{\hk}{h^{k}}
+\newcommand{\nmo}{\fr{1}{n}}
+\newcommand{\nmt}{\fr{1}{n^2}}
+\newcommand{\tnmo}{\fr{2}{n}}
+\newcommand{\tnmt}{\fr{2}{n^2}}
+\newcommand{\ub}{\underbrace}
+\newcommand{\omi}{\omega_i}
+\newcommand{\om}{\omega}
+\newcommand{\omtpo}{\omega^{t+1}}
+\newcommand{\omt}{\omega^{t}}
+
+\newcommand{\z}{\zeta}
+\newcommand{\lt}{\left}
+\newcommand{\rt}{\right}
+\newcommand{\al}{\alpha}
+\newcommand{\p}{\partial}
+\newcommand{\D}{\Delta}
+\newcommand{\fr}{\frac}
+\newcommand{\dfr}{\dfrac}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mds}{\mathds}
+\newcommand{\bb}{\mathbb}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wS}{\wt{S}}
+\newcommand{\wA}{\wt{A}}
+\newcommand{\wL}{\wt{L}}
+\newcommand{\wB}{\wt{B}}
+\newcommand{\wC}{\wt{C}}
+\newcommand{\ws}{\wt{s}}
+\newcommand{\wg}{\wt{g}}
+\newcommand{\wgix}{\wg_i(x)}
+\newcommand{\wgiy}{\wg_i(y)}
+\newcommand{\wgik}{\wg_i(x^k)}
+\newcommand{\wgikpo}{\wg_i(x^{k+1})}
+\newcommand{\wgu}{\wt{g}^u}
+\newcommand{\wG}{\wt{G}}
+\newcommand{\hG}{\hat{G}}
+\newcommand{\pA}{A^{\prime}}
+\newcommand{\pB}{B^{\prime}}
+\newcommand{\pC}{C^{\prime}}
+\newcommand{\wpA}{\wA^{\prime}}
+\newcommand{\wpB}{\wB^{\prime}}
+\newcommand{\wpC}{\wC^{\prime}}
+\newcommand{\ppA}{A^{\prime \prime}}
+\newcommand{\ppB}{B^{\prime \prime}}
+\newcommand{\ppC}{C^{\prime \prime}}
+
+
+\newcommand{\hg}{\hat{g}}
+\newcommand{\hgi}{\hat{g}_i}
+\newcommand{\hgix}{\hat{g}_i(x)}
+\newcommand{\hgiy}{\hat{g}_i(y)}
+\newcommand{\hgik}{\hat{g}_i(x^k)}
+\newcommand{\hgikpo}{\hat{g}_i(x^{k+1})}
+\newcommand{\hgu}{\hat{g}^u}
+\newcommand{\hs}{\hat{s}}
+
+
+\newcommand{\eik}{e_i^t}
+\newcommand{\gik}{g_i^t}
+\newcommand{\gikpo}{g_i^{t+1}}
+\newcommand{\eikpo}{e_i^{t+1}}
+\newcommand{\vik}{v_i^t}
+\newcommand{\vikpo}{v_i^{t+1}}
+
+\newcommand{\git}{g_i^t}
+\newcommand{\gitpo}{g_i^{t+1}}
+\newcommand{\eit}{e_i^t}
+\newcommand{\eitpo}{e_i^{t+1}}
+\newcommand{\vit}{v_i^t}
+\newcommand{\vitpo}{v_i^{t+1}}
+
+\newcommand{\wcC}{\wt{\cC}}
+\newcommand{\La}{\Lambda}
+\newcommand{\lam}{\lambda}
+\newcommand{\opn}{\operatorname}
+\newcommand{\vp}{\varphi}
+\newcommand{\bM}{\mbf M}
+\newcommand{\bG}{\mbf G}
+\newcommand{\bI}{\mbf I}
+\newcommand{\bD}{\mbf D}
+\newcommand{\bA}{\mbf A}
+\newcommand{\bC}{\mbf C}
+\newcommand{\bP}{\mbf P}
+\newcommand{\bB}{\bb B}
+\newcommand{\bU}{\bb U}
+\newcommand{\bLa}{\mbf {\La}}
+%\newcommand{\R}{\bb R}
+\newcommand{\bE}{\mbf E}
+\newcommand{\hS}{\hat{S}}
+\newcommand{\eps}{{\varepsilon}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\stepsize}{\eta}
+%\newcommand{\cE}{{\cal E}}
+%\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\lin}[1]{\left\langle #1\right\rangle} % product
+%\newcommand{\cD}{\mathcal{D}}
+%\newcommand{\cC}{\mathcal{C}}
+%\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cCw}{\cC_{\omega}}
+\newcommand{\cCd}{\cC_{\delta}}
+\newcommand{\Ctk}[1]{\cC_{Tk}\rb{#1}}
+\newcommand{\gixk}{g_{i}(x_k)}
+%\newcommand{\cS}{\mathcal{S}}
+\newcommand{\mM}{\mathbf{M}}
+\newcommand{\mN}{\mathbf{N}}
+\newcommand{\bN}{\mathbf{N}}
+%\newcommand{\mI}{\mathbf{I}}
+\newcommand{\mL}{\mathbf{L}}
+\newcommand{\mD}{\mathbf{D}}
+\newcommand{\bx}{\bar{x}}
+\newcommand{\by}{\bar{y}}
+
+\newcommand{\eqtext}[1]{\ensuremath{\stackrel{\text{#1}}{=}}}
+\newcommand{\letext}[1]{\ensuremath{\stackrel{\text{#1}}{\le}}}
+\newcommand{\getext}[1]{\ensuremath{\stackrel{\text{#1}}{\ge}}}
+\newcommand{\succtext}[1]{\ensuremath{\stackrel{\text{#1}}{\succ}}}
+\newcommand{\preceqtext}[1]{\ensuremath{\stackrel{\text{#1}}{\preceq}}}
+\newcommand{\onenorm}[1]{\left\| #1 \right\|_1}      % norm 
+\newcommand{\twonorm}[1]{\left\| #1 \right\|_2}      % norm 
+\newcommand{\threenorm}[1]{\left\| #1 \right\|_3}      % norm 
+\newcommand{\gnorm}[1]{\left\| #1 \right\|^{1 + \gamma }}      % norm 
+\newcommand{\sqnorm}[1]{\left\| #1 \right\|^{2}}
+\newcommand{\anorm}[1]{\left\| #1 \right\|^{\al}}      % norm 
+\newcommand{\bnorm}[1]{\left\| #1 \right\|^{\beta}}      % norm 
+\newcommand{\ahnorm}[1]{\left\| #1 \right\|^{\al/2}}      % norm 
+\newcommand{\bbone}[1]{\mathbb{1}}      % norm 
+\newcommand{\g}{\gamma}
+
+%\newcommand{\nf}[1]{\nabla f\rb{#1}}      % norm 
+
+\newcommand{\hotidea}{{\color{red}\bf HOT IDEA: }}
+\newcommand{\done}{{\color{blue}\bf DONE: }}
+%\newcommand{\cO}{{\cal O}}
+
+\newcommand{\del}[1]{}
+
+\newcommand{\finf}{f^\mathrm{inf}}
+\newcommand{\fiinf}{f_i^\mathrm{inf}}
+
+\let\la=\langle
+\let\ra=\rangle
+
+\def\<{\left\langle}
+\def\>{\right\rangle}
+% \def\[{\left[}
+%\def\]{\right]}
+\def\({\left(}
+\def\){\right)}
+
+%\newcommand{\st}{\;:\;}
+\newcommand{\ve}[2]{\langle #1 ,  #2 \rangle}
+
+%\newcommand{\eqdef}{\stackrel{\text{def}}{=}}
+
+\newcommand{\ii}{{}^{(i)}}
+
+
+%\newcommand{\Prob}{\mathbf{Prob}}
+%\newcommand{\E}{\mathbf{E}}
+
+%\usepackage{bbm}
+%\usepackage{dsfont}
+
+\newcommand{\vc}[2]{#1^{(#2)}}
+\newcommand{\nc}[2]{{\color{red}\|#1\|_{(#2)}}}
+\newcommand{\ncs}[2]{\|#1\|^2_{(#2)}}
+\newcommand{\ncc}[2]{{\color{red}\|#1\|^*_{(#2)}}}
+\newcommand{\ls}[1]{{\color{red} \mathcal S(#1)}}
+\newcommand{\Rw}[2]{\mathcal R_{#1}(#2)}
+\newcommand{\Rws}[2]{\mathcal R^2_{#1}(#2)}
+\newcommand{\nbp}[2]{\|#1\|_{(#2)}}   % norm block primal
+\newcommand{\nbd}[2]{\|#1\|_{(#2)}^*} % norm block dual
+\newcommand{\lf}{\mathcal L}
+\newcommand{\U}{U}
+%\newcommand{\N}{N}
+\newcommand{\mLi}{{\color{red}m^{(i)}}}
+\newcommand{\gLi}{{\color{red}f{(i)}}}
+%\newcommand{\TLi}{{\color{red}T_L^{(i)}}}
+\newcommand{\TLi}[1]{{\color{blue}T^{(#1)}}}
+
+\newcommand{\Lip}{L}
+
+\newcommand{\Rc}[1]{{\color{red}  \mathbf{RC}_{(#1)}}}
+\newcommand{\NRCDM}{{\color{red}NRCDM}\  }
+\newcommand{\nnz}[1]{{\color{red}\|#1\|_0}}
+% sets
+\DeclareMathOperator{\card}{card}       % cardinality of a set
+\DeclareMathOperator{\diam}{diam}       % diameter of a set
+\DeclareMathOperator{\MVEE}{MVEE}       % minim volume enclosing ellipsoid of a set
+\DeclareMathOperator{\vol}{vol}         % volume of a set
+
+% statistical
+% \DeclareMathOperator{\Exp}{{\rm E}}           % expectation
+%\newcommand{\Exp}[1]{{\rm E}\left[#1\right]}
+\newcommand{\Exp}[1]{{\bb E}\left[#1\right]}
+\newcommand{\Expu}[2]{{\bb E}_{#1}\left[#2\right]}
+
+\DeclareMathOperator{\Cov}{Cov}         % covariance
+\DeclareMathOperator{\Var}{Var}         % variance
+\DeclareMathOperator{\Corr}{Corr}       % correlation
+
+% functions and operators
+\DeclareMathOperator{\signum}{sign}     % signum/sign of a scalar
+\DeclareMathOperator{\dom}{dom}         % domain
+\DeclareMathOperator{\epi}{epi}         % epigraph
+\DeclareMathOperator{\Ker}{null}        % nullspace/kernel
+\DeclareMathOperator{\nullspace}{null}  % nullpsace
+%\DeclareMathOperator{\range}{range}     % range
+\DeclareMathOperator{\Image}{Im}        % image
+
+% topology
+\DeclareMathOperator{\interior}{int}    % interior
+\DeclareMathOperator{\ri}{rint}         % relative interior
+\DeclareMathOperator{\rint}{rint}       % relative interior
+\DeclareMathOperator{\bdry}{bdry}       % boundary
+\DeclareMathOperator{\cl}{cl}           % closure
+
+% vectors, matrices
+\DeclareMathOperator{\linspan}{span}
+\DeclareMathOperator{\linspace}{linspace}
+\DeclareMathOperator{\cone}{cone}
+
+%\DeclareMathOperator{\tr}{tr}           % trace
+%\DeclareMathOperator{\rank}{rank}       % rank
+\DeclareMathOperator{\conv}{conv}       % convex hull
+\DeclareMathOperator{\Diag}{Diag}       % Diag(v) = diagonal matrix with v_i on the diagonal
+%\DeclareMathOperator{\diag}{diag}       % diag(D) = the diagonal vector of matrix D
+
+\DeclareMathOperator{\Arg}{Arg}         % Argument
+
+%\renewcommand{\qedsymbol}{\ding{114}}
+
+%\newcommand{\lamax}[1]{\lam_{\max}\left(#1\right)}
+%\newcommand{\lamin}[1]{\lam_{\min}\left(#1\right)}
+%\newcommand{\rb}[1]{\left(#1\right)}
+\renewcommand{\sb}[1]{\left[#1\right]}
+%\newcommand{\cb}[1]{\lt\{#1\rt\}}
+
+%\newcommand {\rbl}[1]{(#1)} %round braces without left - right alignment
+%\renewcommand{\nf}[1]{\nabla f\rbl{#1}}
+%\newcommand{\nfi}[1]{\nabla f_i\rbl{#1}}
+%\newcommand{\nfj}[1]{\nabla f_j\rbl{#1}}
